@@ -15,3 +15,6 @@ else
         echo "Server is Offline"
         exit 0
 fi
+cp /opt/openbaton/scripts/start-nscl.sh /etc/init.d/start-nscl.sh
+chmod ugo+x /etc/init.d/start-nscl.sh
+update-rc.d start-nscl.sh defaults
