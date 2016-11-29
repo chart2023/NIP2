@@ -17,3 +17,4 @@ fi
 cp /opt/openbaton/scripts/start-nip.sh /etc/init.d/start-nip.sh
 chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
+ntpq -p
