@@ -1,8 +1,10 @@
 #!/bin/bash
-#sudo touch /opt/openbaton/clientinfo.txt
-#sudo bash -c 'echo $client_private > /opt/openbaton/clientinfo.txt'
-#sudo bash -c 'echo $client_private_floatingIp >> /opt/openbaton/clientinfo.txt'
-echo "nscl_ip=$nscl_private" | sudo tee --append ${HOME}/nscl_info.conf
-echo "nscl_fip=$nscl_private_floatingIp" | sudo tee --append ${HOME}/nscl_info.conf
-echo "nscl_hostname=$nscl_hostname" | sudo tee --append ${HOME}/nscl_info.conf
-#echo "listen_addresses = 'localhost, $ipaddress'" | sudo tee --append /var/lib/pgsql/9.3/data/postgresql.conf
+sudo rm -rf ${HOME}/nscl_info.conf
+echo "nscl_ip=$nscl_private" | tee --append ${HOME}/nscl_info.conf
+echo "nscl_fip=$nscl_private_floatingIp" | tee --append ${HOME}/nscl_info.conf
+echo "nscl_hostname=$nscl_hostname" | tee --append ${HOME}/nscl_info.conf
+sudo rm -rf ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "exports.ipnscl='$nscl_private';" | tee --append ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js
+sudo bash -c "echo exports.ipnip=\'`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`\'\; >> ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js"
+echo "exports.fipnip='$nscl_private_floatingIp';" >> tee --append ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "exports.ipopenstack='161.200.90.78';" >> tee --append ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js
