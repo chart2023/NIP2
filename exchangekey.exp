@@ -1,0 +1,34 @@
+#!/usr/bin/expect -f
+set keydata0 [lindex $argv 0]
+set keydata1 [lindex $argv 1]
+set keydata2 [lindex $argv 2]
+set timeout 10
+spawn ssh "chart@192.168.9.14"
+expect {
+  "# " { }
+  "*(yes/no)?*" {
+        send "yes\n"
+        expect {
+          "> " { }
+          "$ " { }
+                  "*assword*" {send "chul@2016\n";}
+        }
+  }
+  "*assword*" {
+        send "chul@2016\n\n";
+        expect {
+          "> " { }
+          "$ " { }
+        }
+  }
+  default {
+        send_user "Login failed\n"
+        exit
+  }
+}
+expect "*$*"
+send "echo $keydata0 $keydata1 $keydata2 >> .ssh/authorized_keys\n";
+expect "*$*"
+send "exit\n";
+expect eof
+exit 0
