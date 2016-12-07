@@ -2,7 +2,7 @@
 NIP_START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-$REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
+REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
 log_file="$MYHOME/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
@@ -19,6 +19,7 @@ else
 fi
 ntpq -p
 cp /opt/openbaton/scripts/initshard.js ${HOME}/initshard.js
+echo $REPLSET >> ${HOME}/mongodb_info.conf
 sudo service mongod stop
 sudo rm -rf /var/lib/mongodbs
 sudo rm -rf /var/lib/mongod
