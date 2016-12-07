@@ -1,4 +1,8 @@
 #!/bin/bash
+#############################
+#1. Setup host ip
+#2. Setup start_nip.sh to start when instance boot
+############################
 NIP_START_TIME=$(date)
 myhome=${HOME}
 log_file="$myhome/install-log.txt"
