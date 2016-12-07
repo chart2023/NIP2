@@ -2,9 +2,11 @@
 <html>
 <table style="width:100%">
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
+    <th>Filename</th>
+    <th>location</th>
+    <th>Lifecycle</th>
+    <th>Role</th>
+    <th>Note</th>
   </tr>
   </table>
  </html>
