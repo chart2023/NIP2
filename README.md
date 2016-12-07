@@ -13,5 +13,6 @@
   <td>NIP</td>
   <td>INSTANTIATE</td>
   <td>1. Setup host ip<br>2. Setup start_nip.sh when instance boot</td>
+  <td></td>
   </table>
  </html>
