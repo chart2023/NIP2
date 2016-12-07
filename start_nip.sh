@@ -1,4 +1,6 @@
 #!/bin/bash
+wget
+ssh 
 sleep 30
 sudo nohup sudo node ${HOME}/OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_IEEE1888_ETSI.js >${HOME}/ieee.log 2>${HOME}/ieee.err &
 sleep 10
