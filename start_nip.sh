@@ -1,6 +1,6 @@
 #!/bin/bash
 wget
-ssh 
+ssh -o StrictHostKeyChecking=no -l $user $host
 sleep 30
 sudo nohup sudo node ${HOME}/OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_IEEE1888_ETSI.js >${HOME}/ieee.log 2>${HOME}/ieee.err &
 sleep 10
