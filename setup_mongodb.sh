@@ -2,6 +2,7 @@
 NIP_START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
+$REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 1 | head -n 1)
 log_file="$MYHOME/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
@@ -25,7 +26,7 @@ sudo mongod --configsvr --replSet configReplSet --port 27019 --dbpath /var/lib/m
 sleep 3
 mongo --port 27019 --eval "rs.initiate()"
 sudo mkdir /var/lib/mongod
-sudo mongod --shardsvr --replSet A --dbpath /var/lib/mongod --fork --syslog --port 27017
+sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
 mongo --port 27017 --eval "rs.initiate()"
 sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --syslog
-mongo --host $THISHOST --port 27020 --eval "sh.addShard( 'A/$THISHOST:27017' )"
+mongo --host $THISHOST --port 27020 --eval "sh.addShard( '$REPLSET/$THISHOST:27017' )"
