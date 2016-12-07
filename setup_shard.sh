@@ -7,11 +7,11 @@ START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
 QUERY_ROUTER="192.168.9.122"
-REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
+#REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
 log_file="$MYHOME/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
-echo $REPLSET >> ${HOME}/mongodb_info.conf
+echo MainDB >> ${HOME}/db_info.conf
 sudo service mongod stop
 sudo rm -rf /var/lib/mongodbs
 sudo rm -rf /var/lib/mongod
@@ -27,7 +27,7 @@ mongo --port 27017 --eval "rs.initiate()"
 sleep 3
 sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --syslog
 sleep 3
-mongo --host $THISHOST --port 27020 --eval "sh.addShard( '$REPLSET/$THISHOST:27017' )"
+mongo --host $THISHOST --port 27020 --eval "sh.addShard( 'MainDB/$THISHOST:27017' )"
 cp /opt/openbaton/scripts/init_mongo.sh /etc/init.d/init_mongo.sh
 chmod ugo+x /etc/init.d/init_mongo.sh
 update-rc.d init_mongo.sh defaults
