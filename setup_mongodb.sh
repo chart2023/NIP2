@@ -18,6 +18,7 @@ else
         echo "Server cannot connect to Internet"
 fi
 ntpq -p
+cp /opt/openbaton/scripts/initshard.js ${HOME}/initshard.js
 sudo service mongod stop
 sudo rm -rf /var/lib/mongodbs
 sudo rm -rf /var/lib/mongod
