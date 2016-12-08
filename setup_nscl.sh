@@ -5,6 +5,9 @@ log_file="$myhome/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
 rm -rf /opt/openbaton/scripts/
+dpkg-reconfigure -f noninteractive tzdata
+apt-get update
+apt-get install --reinstall tzdata -y
 ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p' > ./ipaddress.txt
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
