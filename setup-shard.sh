@@ -27,6 +27,6 @@ sleep 3
 sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --syslog
 sleep 3
 #mongo --host $THISHOST --port 27020 --eval "sh.addShard( 'MainDB/$THISHOST:27017' )"
-cp /opt/openbaton/scripts/init_mongo.sh /etc/init.d/init_mongo.sh
-chmod ugo+x /etc/init.d/init_mongo.sh
-update-rc.d init_mongo.sh defaults
+cp /opt/openbaton/scripts/init-mongo.sh /etc/init.d/init-mongo.sh
+chmod ugo+x /etc/init.d/init-mongo.sh
+update-rc.d init-mongo.sh defaults
