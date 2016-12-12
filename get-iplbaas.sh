@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "STEP:GET IPLBAAS"
 user='chart'
 host_os='192.168.9.14'
 ssh-keygen
