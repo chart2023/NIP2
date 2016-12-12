@@ -22,7 +22,7 @@ cp /opt/openbaton/scripts/start-nip.sh /etc/init.d/start-nip.sh
 chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
 ntpq -p
-wget http://192.168.9.14:8080/v1/AUTH_b8e61c4a0b1b4d2f82929563cab8c55a/openmtc/openstack_key14.pem
+wget http://192.168.9.14:8080/v1/AUTH_b8e61c4a0b1b4d2f82929563cab8c55a/openmtc/openstack_key14.pem -o ${HOME}/openstack_key14.pem
 chmod 600 ${HOME}/openstack_key14.pem
 #$user='ubuntu'
 #$dbhost='192.168.9.122'
