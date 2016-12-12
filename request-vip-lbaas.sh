@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "STEP: REquest vip lbaas"
 source ${HOME}/devstack/openrc admin admin >/dev/null
 #neutron lbaas-loadbalancer-create --name lb1 private_subnet
 #neutron lbaas-loadbalancer-show lb1
