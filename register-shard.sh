@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "STEP: REGISTER SHARD"
 $REPLSET=$(head -1 ${HOME}/db_info.conf)
 QUERY_ROUTER="192.168.9.122"
 sudo rm -rf /var/lib/mongod
