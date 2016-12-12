@@ -3,6 +3,7 @@
 #This script run at Mongodb instance if Mongodb instance rebooted.
 #This script start query router, configserver, sharding again.
 #################
+echo "STEP: INITIAL MONGODB"
 THISHOST=$(hostname)
 MONGODBINFO=${HOME}/mongodb_info.conf
 REPLSET=$(head -1 $MONGODBINFO)
