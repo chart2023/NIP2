@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "START NIP"
+echo "INSTALL NIP"
 NIP_START_TIME=$(date)
 myhome=${HOME}
 log_file="$myhome/install-log.txt"
