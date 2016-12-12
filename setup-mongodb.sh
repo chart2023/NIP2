@@ -23,5 +23,7 @@ else
         echo "Server cannot connect to Internet"
 fi
 ntpq -p
-cp /opt/openbaton/scripts/initshard.js ${HOME}/initshard.js
+cp /opt/openbaton/scripts/initshard.js /home/ubuntu/initshard.js
+chown ubuntu:ubuntu /home/ubuntu/initshard.js
+chmod 755 /home/ubuntu/initshard.js
 
