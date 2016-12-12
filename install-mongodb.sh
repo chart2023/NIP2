@@ -3,8 +3,8 @@ echo "STEP: SETUP MONGODB"
 NIP_START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
-echo $REPLSET >> ${HOME}/db_info.conf
+#REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
+#echo $REPLSET >> ${HOME}/db_info.conf
 log_file="$MYHOME/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
