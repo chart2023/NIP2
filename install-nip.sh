@@ -3,12 +3,12 @@
 #1. Setup host ip
 #2. Setup start_nip.sh to start when instance boot
 ############################
+echo "START NIP"
 NIP_START_TIME=$(date)
 myhome=${HOME}
 log_file="$myhome/install-log.txt"
 [ -f "$log_file" ] || touch "$log_file"
 exec 1>> $log_file 2>&1
-rm -rf /opt/openbaton/scripts/
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
