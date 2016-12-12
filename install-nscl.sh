@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "START NSCL"
+echo "install NSCL"
 NSCL_START_TIME=$(date)
 myhome=${HOME}
 log_file="$myhome/install-log.txt"
