@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "STEP: SETUP MONGODB"
 NIP_START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
