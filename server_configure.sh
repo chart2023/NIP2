@@ -10,5 +10,5 @@ echo "exports.ipnscl='$server_private';" | tee --append /home/ubuntu/OpenMTC-Chu
 #Set IP NSCL
 #echo "exports.ipnscl='$nscl_private';" | tee --append ${HOME}/OpenMTC-Chula/openmtc/settings/ipserv.js
 sudo bash -c "echo exports.ipnip=\'`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`\'\; >> /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js"
-echo "exports.fipnip='$server_private_floatingIp';" >> tee --append /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js
-echo "exports.ipopenstack='192.168.9.14';" >> tee --append /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "exports.fipnip='$server_private_floatingIp';" | tee --append /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "exports.ipopenstack='192.168.9.14';" | tee --append /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js
