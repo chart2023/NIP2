@@ -2,8 +2,8 @@
 echo "STEP:GET IPLBAAS"
 user='chart'
 host_os='192.168.9.14'
-sudo -u ubuntu ssh-keygen -N "" -f /home/ubuntu/.ssh/id_rsa
-keyfile="/home/ubuntu/.ssh/id_rsa.pub"
+ssh-keygen -N "" -f /root/.ssh/id_rsa
+keyfile="/root/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
 echo $keydata
 sudo expect /opt/openbaton/scripts/exchangekey.exp $keydata
