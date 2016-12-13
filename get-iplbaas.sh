@@ -6,7 +6,7 @@ sudo -u ubuntu ssh-keygen -N "" -f /home/ubuntu/.ssh/id_rsa
 keyfile="/home/ubuntu/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
 echo $keydata
-sudo expect /opt/openbaton/script/exchangekey.exp $keydata
+sudo expect /opt/openbaton/scripts/exchangekey.exp $keydata
 iplbaas=$(ssh $user@$host_os "./request_vip_lbaas.sh")
 echo "iplbaas="
 echo $iplbaas
