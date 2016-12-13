@@ -2,8 +2,7 @@
 echo "STEP:GET IPLBAAS"
 user='chart'
 host_os='192.168.9.14'
-su ubuntu
-ssh-keygen -N "" -f /home/ubuntu/.ssh/id_rsa
+sudo -u ubuntu ssh-keygen -N "" -f /home/ubuntu/.ssh/id_rsa
 keyfile="/home/ubuntu/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
 echo $keydata
