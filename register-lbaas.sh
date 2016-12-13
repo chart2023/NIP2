@@ -4,8 +4,8 @@ user='chart'
 host_os='192.168.9.14'
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
-ssh-keygen
-keyfile="${HOME}/.ssh/id_rsa.pub"
+ssh-keygen -N "" -f /root/.ssh/id_rsa
+keyfile="/root/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
 echo $keydata
 expect /opt/openbaton/scripts/exchangekey.exp $keydata
