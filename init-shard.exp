@@ -1,0 +1,25 @@
+#!/usr/bin/expect -f
+set ip [lindex $argv 0]
+set timeout 10
+spawn ssh -i /openstack_key14.pem ubuntu@$ip
+expect {
+  "# " { }
+  "$ " { }
+  "*(yes/no)?*" {
+        send "yes\n"
+        expect {
+          "> " { }
+          "$ " { }
+        }
+  }
+  default {
+        send_user "Login failed\n"
+        exit
+  }
+}
+expect "*$ *"
+send "mongo --port 27020 initshard.js\n";
+expect "*$ *"
+send "exit\n";
+expect eof
+exit 0
