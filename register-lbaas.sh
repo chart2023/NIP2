@@ -9,4 +9,4 @@ keyfile="/root/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
 echo $keydata
 expect /opt/openbaton/scripts/exchangekey.exp $keydata
-ssh $user@$host_os "./add-iplbaas.sh $ipaddress")
+ssh $user@$host_os "./add-iplbaas.sh $ipaddress"
