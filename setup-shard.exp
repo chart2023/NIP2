@@ -18,7 +18,7 @@ expect {
   }
 }
 expect "*$ *"
-send "sudo /bin/bash /opt/openbaton/scripts/setup-shard.sh\n";
+send "sudo /bin/bash /opt/openbaton/scripts/setup-shard.sh >> /home/ubuntu/setupshard.log\n";
 expect "*$ *"
 send "exit\n";
 expect eof
