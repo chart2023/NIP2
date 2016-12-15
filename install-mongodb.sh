@@ -5,9 +5,6 @@ MYHOME=${HOME}
 THISHOST=$(hostname)
 #nohup bash /opt/openbaton/scripts/randomname.sh &
 #cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1 >> /root/db_info.conf
-log_file="$MYHOME/install-log.txt"
-[ -f "$log_file" ] || touch "$log_file"
-exec 1>> $log_file 2>&1
 date +%s | sha256sum | base64 | head -c 3 >> /root/db_info.conf
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
