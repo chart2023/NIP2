@@ -16,10 +16,9 @@ do
                 mongo --port 27017 --eval "rs.initiate()"
                 sleep 3
                 mongo --host $ipaddress --port 27020 --eval "sh.addShard( '$REPLSET/$THISHOST:27017' )"
+                break
         else
         echo "$service stopped:$i"
         sleep 10
         fi
 done
-
-
