@@ -28,3 +28,5 @@ chmod 600 /openstack_key14.pem
 dbhost='192.168.9.122'
 #ssh -o StrictHostKeyChecking=no -i ${HOME}/openstack_key14.pem -l $user $dbhost --eval "bash /opt/openbaton/scripts/setup-shard.sh"
 expect /opt/openbaton/scripts/setup-shard.exp $dbhost
+sleep 30
+echo FINISHED
