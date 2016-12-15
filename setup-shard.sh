@@ -29,7 +29,7 @@ do
                 echo "$service is running!!!"
                 break
         else
-        echo "$service stopped:$i"
+        echo "$service stopped:$i by $THISHOST"
         sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --logpath /var/log/mongodb/mongos.log
         sleep 10
         fi
