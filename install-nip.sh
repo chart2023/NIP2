@@ -2,9 +2,6 @@
 echo "INSTALL NIP"
 NIP_START_TIME=$(date)
 myhome=${HOME}
-log_file="$myhome/install-log.txt"
-[ -f "$log_file" ] || touch "$log_file"
-exec 1>> $log_file 2>&1
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
