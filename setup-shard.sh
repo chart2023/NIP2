@@ -24,8 +24,19 @@ sleep 7
 #sleep 3
 #mongo --port 27017 --eval "rs.initiate()"
 #sleep 3
-sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --logpath /var/log/mongodb/mongos.log
-sleep 3
+service=mongos
+for i in {1..5}
+do
+        if (( $(ps -ef | grep -v grep | grep $service | wc -l) > 0 ))
+        then
+                echo "$service is running!!!"
+                break
+        else
+        echo "$service stopped:$i"
+        sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --logpath /var/log/mongodb/mongos.log
+        sleep 10
+        fi
+done
 #mongo --host $THISHOST --port 27020 --eval "show dbs"
 cp /opt/openbaton/scripts/init-mongo.sh /etc/init.d/init-mongo.sh
 chmod ugo+x /etc/init.d/init-mongo.sh
