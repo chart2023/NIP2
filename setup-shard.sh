@@ -22,6 +22,8 @@ sleep 7
 #mongo --port 27017 --eval "rs.initiate()"
 #sleep 3
 service=mongos
+MYHOST="configReplSet/$THISHOST:27019"
+echo $MYHOST
 for i in {1..5}
 do
         if (( $(ps -ef | grep -v grep | grep $service | wc -l) > 0 ))
@@ -30,7 +32,7 @@ do
                 break
         else
         echo "$service stopped:$i by $THISHOST on setup-shard.sh"
-        sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --logpath /var/log/mongodb/mongos.log
+        sudo mongos --configdb $MYHOST --port 27020 --fork --logpath /var/log/mongodb/mongos.log
         sleep 10
         fi
 done
