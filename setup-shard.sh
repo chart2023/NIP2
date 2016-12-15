@@ -18,7 +18,7 @@ sudo mkdir /var/lib/mongodbs
 sudo mongod --configsvr --replSet configReplSet --port 27019 --dbpath /var/lib/mongodbs --fork --syslog
 sleep 3
 mongo --port 27019 --eval "rs.initiate()"
-sleep 3
+sleep 5
 #sudo mkdir /var/lib/mongod
 #sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
 #sleep 3
