@@ -1,4 +1,5 @@
 #!/usr/bin/expect -f
+set timeout 40
 set ip [lindex $argv 0]
 set timeout 10
 spawn ssh -i /openstack_key14.pem ubuntu@$ip
@@ -18,7 +19,7 @@ expect {
   }
 }
 expect "*$ *"
-send "sudo /bin/bash /opt/openbaton/scripts/setup-shard.sh >> /home/ubuntu/setupshard.log\n";
+send "sudo nohup /bin/bash /opt/openbaton/scripts/setup-shard.sh >> /home/ubuntu/setupshard.log &\n";
 expect "*$ *"
 send "exit\n";
 expect eof
