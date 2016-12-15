@@ -24,9 +24,9 @@ sleep 5
 #sleep 3
 #mongo --port 27017 --eval "rs.initiate()"
 #sleep 3
-sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --syslog
+sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --logpath /var/log/mongodb/mongos.log
 sleep 3
-mongo --host $THISHOST --port 27020 --eval "show dbs"
+#mongo --host $THISHOST --port 27020 --eval "show dbs"
 cp /opt/openbaton/scripts/init-mongo.sh /etc/init.d/init-mongo.sh
 chmod ugo+x /etc/init.d/init-mongo.sh
 update-rc.d init-mongo.sh defaults
