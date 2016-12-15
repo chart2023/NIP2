@@ -21,7 +21,7 @@ sleep 7
 #sleep 3
 #mongo --port 27017 --eval "rs.initiate()"
 #sleep 3
-service=mongos
+service='mongos'
 MYHOST="configReplSet/$THISHOST:27019"
 echo $MYHOST
 for i in {1..5}
