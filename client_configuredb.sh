@@ -4,7 +4,7 @@ echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
 echo "STEP: REGISTER SHARD"
-$REPLSET=$(head -1 ${HOME}/db_info.conf)
+REPLSET=$(head -1 ${HOME}/db_info.conf)
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
 sudo rm -rf /var/lib/mongod
