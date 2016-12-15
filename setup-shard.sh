@@ -8,9 +8,6 @@ MYHOME=${HOME}
 THISHOST=$(hostname)
 QUERY_ROUTER="192.168.9.122"
 #REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
-log_file="$MYHOME/install-log.txt"
-[ -f "$log_file" ] || touch "$log_file"
-exec 1>> $log_file 2>&1
 sudo service mongod stop
 sudo rm -rf /var/lib/mongodbs
 sudo rm -rf /var/lib/mongod
