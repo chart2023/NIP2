@@ -10,4 +10,4 @@ expect /opt/openbaton/scripts/exchangekey.exp $keydata
 iplbaas=$(ssh $user@$host_os "./request_vip_lbaas.sh")
 echo "iplbaas="
 echo $iplbaas
-sudo echo "exports.iplbaas='$iplbaas';" | tee --append /home/ubuntu/OpenMTC-Chula/openmtc/settings/ipserv.js
+sudo echo "exports.iplbaas='$iplbaas';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
