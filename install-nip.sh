@@ -18,6 +18,7 @@ fi
 cp /opt/openbaton/scripts/start-nip.sh /etc/init.d/start-nip.sh
 chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
+echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 ntpq -p
 wget http://192.168.9.14:8080/v1/AUTH_b8e61c4a0b1b4d2f82929563cab8c55a/openmtc/openstack_key14.pem
 chmod 600 /openstack_key14.pem
