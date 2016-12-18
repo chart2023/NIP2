@@ -6,6 +6,6 @@ dbhost='192.168.9.122'
 #sudo chmod 600 ${HOME}/openstack_key14.pem
 #ssh -o StrictHostKeyChecking=no -i ${HOME}/openstack_key14.pem -l $user $dbhost --eval "mongo --port 27020 initshard.js"
 sleep 30
-sudo nohup sudo node /home/ubuntu/OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_IEEE1888_ETSI.js >/home/ubuntu/ieee.log 2>/home/ubuntu/ieee.err &
+sudo nohup sudo node /OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_IEEE1888_ETSI.js >/home/ubuntu/ieee.log 2>/home/ubuntu/ieee.err &
 sleep 10
-sudo nohup sudo node /home/ubuntu/OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_ETSI_IEEE1888_nscl.js >/home/ubuntu/etsi.log 2>/home/ubuntu/etsi.err &
+sudo nohup sudo node /OpenMTC-Chula/openmtc-NIP/ProxyGateway/NIP_ETSI_IEEE1888_nscl.js >/home/ubuntu/etsi.log 2>/home/ubuntu/etsi.err &
