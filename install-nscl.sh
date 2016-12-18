@@ -15,6 +15,8 @@ if [[ $? -eq 0 ]]; then
 else
         echo "Server cannot connect to Internet"
 fi
+echo "nscl_ip=${private}" | sudo tee --append ${HOME}/nscl_info.conf
+echo "nscl_fip=${private_floatingIp}" | sudo tee --append ${HOME}/nscl_info.conf
 cp /opt/openbaton/scripts/start-nscl.sh /etc/init.d/start-nscl.sh
 chmod ugo+x /etc/init.d/start-nscl.sh
 update-rc.d start-nscl.sh defaults
