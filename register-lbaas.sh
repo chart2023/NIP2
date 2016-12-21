@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "STEP: REGISTER LBAAS"
 user='chart'
-host_os='192.168.9.14'
+host_os='192.168.9.12'
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
 ssh-keygen -N "" -f /root/.ssh/id_rsa
