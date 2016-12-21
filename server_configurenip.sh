@@ -17,7 +17,7 @@ echo "exports.fipnscl='$server_private_floatingIp';" | tee --append /OpenMTC-Chu
 #######
 echo "STEP:GET IPLBAAS"
 user='chart'
-host_os='192.168.9.14'
+host_os='192.168.9.12'
 ssh-keygen -N "" -f /root/.ssh/id_rsa
 keyfile="/root/.ssh/id_rsa.pub"
 keydata=$(cat $keyfile)
