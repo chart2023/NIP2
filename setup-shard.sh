@@ -6,7 +6,7 @@
 START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-QUERY_ROUTER="192.168.9.122"
+#QUERY_ROUTER="192.168.9.122"
 #REPLSET=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1)
 sudo service mongod stop
 sudo rm -rf /var/lib/mongodbs
