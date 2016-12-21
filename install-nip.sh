@@ -2,6 +2,8 @@
 echo "INSTALL NIP"
 NIP_START_TIME=$(date)
 myhome=${HOME}
+keyfile=${keyfile}
+keyname=${keyname}
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
@@ -20,11 +22,10 @@ chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 ntpq -p
-wget http://192.168.9.14:8080/v1/AUTH_b8e61c4a0b1b4d2f82929563cab8c55a/openmtc/openstack_key14.pem
-chmod 600 /openstack_key14.pem
-#$user='ubuntu'
+rm -rf ./$keyname*
+wget $keyfile
+chmod 600 /$keyname
 dbhost='192.168.9.122'
-#ssh -o StrictHostKeyChecking=no -i ${HOME}/openstack_key14.pem -l $user $dbhost --eval "bash /opt/openbaton/scripts/setup-shard.sh"
 expect /opt/openbaton/scripts/setup-shard.exp $dbhost
 sleep 30
 echo FINISHED
