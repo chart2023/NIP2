@@ -2,6 +2,8 @@
 echo "install NSCL"
 NSCL_START_TIME=$(date)
 myhome=${HOME}
+keyfile=${keyfile}
+keyname=${keyname}
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
@@ -21,3 +23,6 @@ cp /opt/openbaton/scripts/start-nscl.sh /etc/init.d/start-nscl.sh
 chmod ugo+x /etc/init.d/start-nscl.sh
 update-rc.d start-nscl.sh defaults
 ntpq -p
+rm -rf ./$keyname*
+wget $keyfile
+chmod 600 /$keyname
