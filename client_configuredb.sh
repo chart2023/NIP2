@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "client configure"
+echo "client configure at db"
 echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
@@ -29,6 +29,6 @@ do
                 break
         else
         echo "$service stopped:$i on client_configuredb.sh"
-        sleep 10
+        sleep 15
         fi
 done
