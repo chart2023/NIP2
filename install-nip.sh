@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "INSTALL NIP"
-NIP_START_TIME=$(date)
+echo "START at:" $(date)
 myhome=${HOME}
 keyfile=${keyfile}
 keyname=${keyname}
@@ -25,4 +25,5 @@ ntpq -p
 rm -rf ./$keyname*
 wget $keyfile
 chmod 600 /$keyname
-
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
