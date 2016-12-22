@@ -1,5 +1,5 @@
-
 #!/bin/bash
+echo "#############################"
 echo "client configure at NSCL"
 echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
@@ -15,3 +15,4 @@ keydata=$(cat $keyfile)
 echo $keydata
 expect /opt/openbaton/scripts/exchangekey.exp $keydata
 ssh $user@$host_os "./add-iplbaas.sh $ipaddress"
+echo "#############FINISHED################"
