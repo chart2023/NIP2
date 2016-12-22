@@ -20,6 +20,8 @@ expect {
 }
 expect "*$ *"
 send "sudo nohup /bin/bash /opt/openbaton/scripts/setup-shard.sh >> /home/ubuntu/setupshard.log &\n";
+#expect "*$ *"
+#send "echo "db_ip=$ip" | sudo tee --append ${HOME}/db_info.conf\n";
 expect "*$ *"
 send "exit\n";
 expect eof
