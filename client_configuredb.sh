@@ -33,3 +33,4 @@ do
         sleep 15
         fi
 done
+echo "#############FINISHED################"
