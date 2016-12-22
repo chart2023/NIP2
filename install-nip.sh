@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "INSTALL NIP"
+echo "STEP1: INSTANTIATE NIP"
 echo "START at:" $(date)
 myhome=${HOME}
 keyfile=${keyfile}
