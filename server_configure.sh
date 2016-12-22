@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "START at:" $(date)
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
 sudo rm -rf ${HOME}/nscl_info.conf
@@ -14,3 +15,5 @@ echo "exports.ipnscl='$server_private';" | tee --append /OpenMTC-Chula/openmtc/s
 echo "exports.ipnip='$ipaddress';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.fipnscl='$server_private_floatingIp';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='161.200.90.78';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
