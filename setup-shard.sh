@@ -3,6 +3,8 @@
 # Once time run
 # Run by setup_nip.sh at NIP in INSTANTIATE state
 ##PARAMETER
+echo "SETUP SHARD"
+echo "START at:" $(date)
 START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
@@ -40,3 +42,5 @@ done
 cp /opt/openbaton/scripts/init-mongo.sh /etc/init.d/init-mongo.sh
 chmod ugo+x /etc/init.d/init-mongo.sh
 update-rc.d init-mongo.sh defaults
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
