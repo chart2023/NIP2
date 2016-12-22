@@ -3,6 +3,7 @@ echo "client configure at db"
 echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
+maindb_ip=$(ssh -o StrictHostKeyChecking=no -i openstack_key.pem -l ubuntu $client_private "cat /home/ubuntu/maindb_info.txt")
 echo "STEP: REGISTER SHARD"
 THISHOST=$(hostname)
 REPLSET=$(head -1 ${HOME}/db_info.conf)
@@ -18,7 +19,8 @@ sudo mkdir /var/lib/mongod
 service=mongos
 for i in {1..5}
 do
-        if (( $(ps -ef | grep -v grep | grep $service | wc -l) > 0 ))
+        nc -z -v $maindb_ip 27020
+        if [ $? -eq 0 ];
         then
                 echo "$service is running!!!"
                 sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
