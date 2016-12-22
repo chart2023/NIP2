@@ -4,8 +4,19 @@ echo "START at:" $(date)
 echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
-MAINDB_IP=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $client_private "sudo head -1 /home/ubuntu/maindb_info.conf")
-echo "MAINDB_IP:" $MAINDB_IP
+MAINDB_IP=''
+for i in {1..5}
+do
+        if [ -z "$MAINDB_IP"];
+        then
+                MAINDB_IP=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $client_private "sudo head -1 /home/ubuntu/maindb_info.conf")
+                echo "MAINDB_IP:" $MAINDB_IP
+                break
+        else
+        echo "MAINDB_IP=NULL"
+        sleep 15
+        fi
+done
 echo "STEP: REGISTER SHARD"
 THISHOST=$(hostname)
 REPLSET=$(head -1 ${HOME}/db_info.conf)
