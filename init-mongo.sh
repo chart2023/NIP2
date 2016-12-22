@@ -4,6 +4,7 @@
 #This script start query router, configserver, sharding again.
 #################
 echo "STEP: INITIAL MONGODB"
+echo "START at:" $(date)
 THISHOST=$(hostname)
 MONGODBINFO=${HOME}/mongodb_info.conf
 REPLSET=$(head -1 $MONGODBINFO)
@@ -12,3 +13,5 @@ sleep 5
 sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
 sleep 5
 sudo mongos --configdb configReplSet/$THISHOST:27019 --port 27020 --fork --syslog
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
