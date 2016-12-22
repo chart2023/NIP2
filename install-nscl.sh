@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "install NSCL"
+echo "STEP1: INSTANTIATE NSCL"
 echo "START at:" $(date)
 NSCL_START_TIME=$(date)
 myhome=${HOME}
