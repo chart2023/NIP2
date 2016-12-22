@@ -25,7 +25,4 @@ ntpq -p
 rm -rf ./$keyname*
 wget $keyfile
 chmod 600 /$keyname
-dbhost='192.168.9.122'
-expect /opt/openbaton/scripts/setup-shard.exp $dbhost
-sleep 30
-echo FINISHED
+
