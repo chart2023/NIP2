@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "STEP: SETUP MONGODB"
-NIP_START_TIME=$(date)
+echo "START at:" $(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
 keyfile=${keyfile}
@@ -27,3 +27,5 @@ chmod 755 /home/ubuntu/initshard.js
 rm -rf ./$keyname*
 wget $keyfile
 chmod 600 /$keyname
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
