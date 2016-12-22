@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "install NSCL"
+echo "START at:" $(date)
 NSCL_START_TIME=$(date)
 myhome=${HOME}
 keyfile=${keyfile}
@@ -26,3 +27,5 @@ ntpq -p
 rm -rf ./$keyname*
 wget $keyfile
 chmod 600 /$keyname
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
