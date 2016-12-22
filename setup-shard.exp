@@ -2,7 +2,7 @@
 set timeout 40
 set ip [lindex $argv 0]
 set timeout 10
-spawn ssh -i /openstack_key14.pem ubuntu@$ip
+spawn ssh -i /openstack_key.pem ubuntu@$ip
 expect {
   "# " { }
   "$ " { }
