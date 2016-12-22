@@ -3,8 +3,8 @@ echo "STEP: SETUP MONGODB"
 NIP_START_TIME=$(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-#nohup bash /opt/openbaton/scripts/randomname.sh &
-#cat /dev/urandom | tr -dc 'A-Z' | fold -w 3 | head -n 1 >> /root/db_info.conf
+keyfile=${keyfile}
+keyname=${keyname}
 date +%s | sha256sum | base64 | head -c 3 >> /root/db_info.conf
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
@@ -24,3 +24,6 @@ ntpq -p
 cp /opt/openbaton/scripts/initshard.js /home/ubuntu/initshard.js
 chown ubuntu:ubuntu /home/ubuntu/initshard.js
 chmod 755 /home/ubuntu/initshard.js
+rm -rf ./$keyname*
+wget $keyfile
+chmod 600 /$keyname
