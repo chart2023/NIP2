@@ -21,7 +21,6 @@ echo "STEP: REGISTER SHARD"
 THISHOST=$(hostname)
 REPLSET=$(head -1 ${HOME}/db_info.conf)
 sudo rm -rf /var/lib/mongod
-
 #sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
 #sleep 3
 #mongo --port 27017 --eval "rs.initiate()"
