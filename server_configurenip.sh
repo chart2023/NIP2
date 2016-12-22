@@ -27,6 +27,7 @@ echo $keydata
 expect /opt/openbaton/scripts/exchangekey.exp $keydata
 iplbaas=$(ssh $user@$host_os "./request-vip-lbaas.sh")
 echo "iplbaas=" $iplbaas
+echo "iplbaas=$iplbaas" | tee --append ${HOME}/nscl_info.conf
 sudo echo "exports.iplbaas='$iplbaas';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
