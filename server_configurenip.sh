@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Server configure at NIP"
+echo "START at:" $(date)
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
 sudo rm -rf ${HOME}/nscl_info.conf
@@ -24,6 +26,7 @@ keydata=$(cat $keyfile)
 echo $keydata
 expect /opt/openbaton/scripts/exchangekey.exp $keydata
 iplbaas=$(ssh $user@$host_os "./request-vip-lbaas.sh")
-echo "iplbaas="
-echo $iplbaas
+echo "iplbaas=" $iplbaas
 sudo echo "exports.iplbaas='$iplbaas';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
