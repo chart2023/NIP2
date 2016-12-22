@@ -7,14 +7,14 @@ echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
 MAINDB_IP=''
 for i in {1..5}
 do
+        MAINDB_IP=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $client_private "sudo head -1 /home/ubuntu/maindb_info.conf")
         if [ -z "$MAINDB_IP"];
         then
-                MAINDB_IP=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $client_private "sudo head -1 /home/ubuntu/maindb_info.conf")
+                echo "MAINDB_IP=NULL"
+                sleep 15
+        else
                 echo "MAINDB_IP:" $MAINDB_IP
                 break
-        else
-        echo "MAINDB_IP=NULL"
-        sleep 15
         fi
 done
 echo "STEP: REGISTER SHARD"
