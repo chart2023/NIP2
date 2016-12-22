@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "STEP: SETUP MONGODB"
+echo "STEP: INSTANTIATE MONGODB"
 echo "START at:" $(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
