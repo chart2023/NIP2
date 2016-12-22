@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "STEP: REGISTER SHARD"
+echo "START at:" $(date)
 $REPLSET=$(head -1 ${HOME}/db_info.conf)
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
@@ -22,3 +23,5 @@ do
         sleep 10
         fi
 done
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
