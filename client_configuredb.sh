@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "client configure at DB-SERVER"
+echo "START at:" $(date)
 echo "nip_ip=$client_private" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_fip=$client_private_floatingIp" | sudo tee --append ${HOME}/nip_info.conf
 echo "nip_hostname=$client_hostname" | sudo tee --append ${HOME}/nip_info.conf
@@ -33,4 +34,5 @@ do
         sleep 15
         fi
 done
-echo "#############FINISHED################"
+echo "STOP at:" $(date)
+echo "##########FINISHED############"
