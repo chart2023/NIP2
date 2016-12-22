@@ -3,7 +3,7 @@ set keydata0 [lindex $argv 0]
 set keydata1 [lindex $argv 1]
 set keydata2 [lindex $argv 2]
 set timeout 10
-spawn ssh "chart@192.168.9.14"
+spawn ssh "chart@192.168.9.12"
 expect {
   "# " { }
   "*(yes/no)?*" {
