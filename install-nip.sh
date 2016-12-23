@@ -20,6 +20,7 @@ fi
 cp /opt/openbaton/scripts/start-nip.sh /etc/init.d/start-nip.sh
 chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
+sudo rm -rf /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 ntpq -p
 rm -rf ./$keyname*
