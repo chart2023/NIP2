@@ -14,7 +14,7 @@ do
         if [ $? -eq 0 ];
         then
                 nohup node /OpenMTC-Chula/nscl >/home/ubuntu/nscl.log 2>/home/ubuntu/nscl.err &
-                sleep 5
+                sleep 15
                 expect /opt/openbaton/scripts/init-shard.exp $dbhost
                 break
         else
