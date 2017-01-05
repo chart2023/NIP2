@@ -2,8 +2,8 @@
 echo "STEP1: INSTANTIATE NIP"
 echo "START at:" $(date)
 myhome=${HOME}
-keyfile=${keyfile}
-keyname=${keyname}
+#keyfile=${keyfile}
+#keyname=${keyname}
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
@@ -23,8 +23,8 @@ update-rc.d start-nip.sh defaults
 sudo rm -rf /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 ntpq -p
-rm -rf ./$keyname*
-wget $keyfile
+#rm -rf ./$keyname*
+#wget $keyfile
 chmod 600 /$keyname
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
