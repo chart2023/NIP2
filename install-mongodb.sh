@@ -3,8 +3,6 @@ echo "STEP: INSTANTIATE MONGODB"
 echo "START at:" $(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-#keyfile=${keyfile}
-#keyname=${keyname}
 date +%s | sha256sum | base64 | head -c 3 >> /root/db_info.conf
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
@@ -24,8 +22,5 @@ ntpq -p
 cp /opt/openbaton/scripts/initshard.js /home/ubuntu/initshard.js
 chown ubuntu:ubuntu /home/ubuntu/initshard.js
 chmod 755 /home/ubuntu/initshard.js
-#rm -rf ./$keyname*
-#wget $keyfile
-chmod 600 /$keyname
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
