@@ -5,7 +5,10 @@ user='ubuntu'
 source /root/db_info.conf
 dbhost=$db_ip
 #dbhost='192.168.9.122'
-
+user1='chart'
+host_os='192.168.9.12'
+ipfile="./ipaddress.txt"
+ipaddress=$(head -1 $ipfile)
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
 for i in {1..5}
@@ -23,3 +26,4 @@ do
         sleep 15
         fi
 done
+ssh $user1@$host_os "./add-iplbaas.sh $ipaddress"
