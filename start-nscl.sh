@@ -17,8 +17,8 @@ do
         then
                 echo "Mongos have already started"
                 nohup node /OpenMTC-Chula/nscl >/home/ubuntu/nscl.log 2>/home/ubuntu/nscl.err &
-                sleep 15
-                expect /opt/openbaton/scripts/init-shard.exp $dbhost
+                sleep 5
+                #expect /opt/openbaton/scripts/init-shard.exp $dbhost
                 ssh $user1@$host_os "./add-iplbaas.sh $ipaddress"
                 break
         else
