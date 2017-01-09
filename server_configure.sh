@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "START at:" $(date)
+echo "START server configure at:" $(date)
 ipfile="./ipaddress.txt"
 echo $(hostname)
 ipaddress=$(head -1 $ipfile)
