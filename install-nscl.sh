@@ -22,5 +22,6 @@ cp /opt/openbaton/scripts/start-nscl.sh /etc/init.d/start-nscl.sh
 chmod ugo+x /etc/init.d/start-nscl.sh
 update-rc.d start-nscl.sh defaults
 ntpq -p
-echo "STOP at:" $(date)
+sed -i 's/db.dropDatabase(cb);/cb(null, null);/g' /OpenMTC-Chula/openmtc-xSCL/lib/db/mongodb/index.js
+echo "FINISH at:" $(date)
 echo "##########FINISHED############"
