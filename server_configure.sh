@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "START at:" $(date)
 ipfile="./ipaddress.txt"
+echo $(hostname)
 ipaddress=$(head -1 $ipfile)
 sudo rm -rf ${HOME}/nscl_info.conf
 echo "nscl_ip=$server_private" | tee --append ${HOME}/nscl_info.conf
