@@ -9,7 +9,7 @@ user1='chart'
 host_os='192.168.9.12'
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
-echo "STOP at:" $(date)
+
 for i in {1..5}
 do
         nc -z -v $dbhost 27017
@@ -37,4 +37,5 @@ do
         sleep 15
         fi
 done
+echo "FINISH at:" $(date)
 echo "##########FINISHED############"
