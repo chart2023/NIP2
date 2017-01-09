@@ -3,7 +3,7 @@ echo "Server configure at NIP"
 echo "START at:" $(date)
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
-sudo rm -rf ${HOME}/nscl_info.conf
+#sudo rm -rf ${HOME}/nscl_info.conf
 echo "nscl_ip=$server_private" | tee --append ${HOME}/nscl_info.conf
 echo "nscl_fip=$server_private_floatingIp" | tee --append ${HOME}/nscl_info.conf
 echo "nscl_hostname=$server_hostname" | tee --append ${HOME}/nscl_info.conf
