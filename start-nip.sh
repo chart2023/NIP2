@@ -3,6 +3,7 @@ echo "START NIP"
 echo "START at:" $(date)
 source /root/nscl_info.conf
 NSCL_IP=$nscl_ip
+echo $NSCL_IP
 sleep 30
 for i in {1..10}
 do
