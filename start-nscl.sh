@@ -23,7 +23,8 @@ do
                 do
                      nc -z -v $ipaddress 15000
                      if [ $? -eq 0 ];
-                        then   
+                        then
+                        echo "NSCL has been started"
                         ssh $user1@$host_os "./add-iplbaas.sh $ipaddress"
                         break
                         else
