@@ -11,11 +11,11 @@ expect {
         expect {
           "> " { }
           "$ " { }
-                  "*assword*" {send "chul@2016\n";}
+                  "*assword*" {send "chul@1988\n";}
         }
   }
   "*assword*" {
-        send "chul@2016\n\n";
+        send "chul@1988\n\n";
         expect {
           "> " { }
           "$ " { }
