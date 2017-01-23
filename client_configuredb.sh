@@ -11,7 +11,7 @@ MAINDB_IP=''
 for i in {1..5}
 do
         MAINDB_IP=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $client_private "sudo head -1 /home/ubuntu/maindb_info.conf")
-        if [ -z "$MAINDB_IP"];
+        if [ -z "$MAINDB_IP" ];
         then
                 echo "MAINDB_IP=NULL"
                 sleep 15
