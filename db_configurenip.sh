@@ -8,13 +8,12 @@ echo "exports.ipdb='$db_private';" | tee --append /OpenMTC-Chula/openmtc/setting
 echo "$db_private" | sudo tee --append /home/ubuntu/maindb_info.conf
 source ${HOME}/db_info.conf
 MAINDB_IP=$(head -1 /home/ubuntu/maindb_info.conf)
-if [ $MAINDB_IP = $db_ip];
+if [ $MAINDB_IP = $db_ip ];
 then
   dbhost=$db_ip
   expect /opt/openbaton/scripts/setup-shard.exp $dbhost
 else
   echo "THIS IS EXTENDED DB"
 fi
-echo "#############FINISHED################"
 echo "FINISED at:" $(date)
 echo "##########FINISHED############"
