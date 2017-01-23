@@ -26,12 +26,7 @@ then
         echo "STEP: REGISTER MAIN SHARD"
         REPLSET=$(head -1 /home/ubuntu/db_info.conf)
         sudo rm -rf /var/lib/mongod
-        #sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
-        #sleep 3
-        #mongo --port 27017 --eval "rs.initiate()"
-        #sleep 3
-        #mongo --host $ipaddress --port 27020 --eval "sh.addShard( '$REPLSET/$THISHOST:27017' )"
-        MYHOST="$REPLSET/$THISHOST:27017"
+        MYHOST="$REPLSET/$THISIP:27017"
         for i in {1..5}
         do
                 nc -z -v $MAINDB_IP 27020
@@ -53,11 +48,9 @@ then
         echo "FINISHED at:" $(date)
 else
         echo "STEP: REGISTER extended SHARD"
-        #MAINREPLSET=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $MAINDB_IP "sudo head -1 /home/ubuntu/db_info.conf")
         REPLSET=$(head -1 /home/ubuntu/db_info.conf)
         sudo rm -rf /var/lib/mongod
-        #MYHOST="$MAINREPLSET/$THISHOST:27017"
-        MYHOST="$REPLSET/$THISHOST:27017"
+        MYHOST="$REPLSET/$THISIP:27017"
         for i in {1..5}
         do
                 nc -z -v $MAINDB_IP 27020
