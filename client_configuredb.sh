@@ -53,9 +53,11 @@ then
         echo "FINISHED at:" $(date)
 else
         echo "STEP: REGISTER extended SHARD"
-        MAINREPLSET=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $MAINDB_IP "sudo head -1 /home/ubuntu/db_info.conf")
+        #MAINREPLSET=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $MAINDB_IP "sudo head -1 /home/ubuntu/db_info.conf")
+        REPLSET=$(head -1 /home/ubuntu/db_info.conf)
         sudo rm -rf /var/lib/mongod
-        MYHOST="$MAINREPLSET/$THISHOST:27017"
+        #MYHOST="$MAINREPLSET/$THISHOST:27017"
+        MYHOST="$REPLSET/$THISHOST:27017"
         for i in {1..5}
         do
                 nc -z -v $MAINDB_IP 27020
@@ -63,7 +65,7 @@ else
                 then
                         echo "$SERVICE is running!!!"
                         sudo mkdir /var/lib/mongod
-                        sudo mongod --shardsvr --replSet $MAINREPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
+                        sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
                         sleep 3
                         mongo --port 27017 --eval "rs.initiate()"
                         sleep 3
