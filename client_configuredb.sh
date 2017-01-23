@@ -21,7 +21,8 @@ do
         fi
 done
 SERVICE='mongos'
-if [ $MAINDB_IP = $THISIP];
+echo "THIS IS:"$THISIP
+if [ $MAINDB_IP = $THISIP ];
 then
         echo "STEP: REGISTER MAIN SHARD"
         REPLSET=$(head -1 /home/ubuntu/db_info.conf)
