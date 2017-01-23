@@ -14,8 +14,7 @@ then
   expect /opt/openbaton/scripts/setup-shard.exp $dbhost
 else
   echo "THIS IS EXTENDED DB"
-  break;
 fi
 echo "#############FINISHED################"
-echo "STOP at:" $(date)
+echo "FINISED at:" $(date)
 echo "##########FINISHED############"
