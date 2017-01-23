@@ -3,7 +3,7 @@ echo "STEP: INSTANTIATE MONGODB"
 echo "START at:" $(date)
 MYHOME=${HOME}
 THISHOST=$(hostname)
-date +%s | sha256sum | base64 | head -c 3 >> /root/db_info.conf
+date +%s | sha256sum | base64 | head -c 3 >> /home/ubuntu/db_info.conf
 dpkg-reconfigure -f noninteractive tzdata
 apt-get update
 apt-get install --reinstall tzdata -y
