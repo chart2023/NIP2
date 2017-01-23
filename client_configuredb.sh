@@ -27,7 +27,7 @@ then
         echo "STEP: REGISTER MAIN SHARD"
         REPLSET=$(head -1 /home/ubuntu/db_info.conf)
         sudo rm -rf /var/lib/mongod
-        MYHOST="$REPLSET/$THISIP:27017"
+        MYHOST="$REPLSET/$THISHOST:27017"
         for i in {1..5}
         do
                 nc -z -v $MAINDB_IP 27020
@@ -51,7 +51,7 @@ else
         echo "STEP: REGISTER extended SHARD"
         REPLSET=$(head -1 /home/ubuntu/db_info.conf)
         sudo rm -rf /var/lib/mongod
-        MYHOST="$REPLSET/$THISIP:27017"
+        MYHOST="$REPLSET/$THISHOST:27017"
         for i in {1..5}
         do
                 nc -z -v $MAINDB_IP 27020
