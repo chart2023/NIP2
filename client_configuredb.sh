@@ -68,7 +68,7 @@ else
                         sudo mongod --shardsvr --replSet $REPLSET --dbpath /var/lib/mongod --fork --syslog --port 27017
                         sleep 3
                         mongo --port 27017 --eval "rs.initiate()"
-                        sleep 3
+                        sleep 5
                         mongo --host $MAINDB_IP --port 27020 --eval "sh.addShard( '$MYHOST' )"
                         break
                 else
