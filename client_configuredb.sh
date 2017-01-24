@@ -63,7 +63,7 @@ else
                         sleep 3
                         mongo --port 27017 --eval "rs.initiate()"
                         sleep 5
-                        mongo --host $MAINDB_IP --port 27020 --eval "sh.addShard( '$MYHOST' )"
+                        #mongo --host $MAINDB_IP --port 27020 --eval "sh.addShard( '$MYHOST' )"
                         break
                 else
                 echo "$service stopped:$i on client_configuredb.sh"
