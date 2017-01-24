@@ -28,7 +28,7 @@ then
 else
   echo "THIS IS EXTENDED DB"
   ##Add new DB hostname to MAIN DB
-  ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu MAINDB_IP "echo $THISDB_INFO | sudo tee --append /etc/hosts" 
+  ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $MAINDB_IP "echo $THISDB_INFO | sudo tee --append /etc/hosts" 
   ##Add Main DB hostname to extend DB
   THISDB_IP=$(awk -F' ' '{ print $1}' $DBFILE | tail -1)
   ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $db_private "echo $MAINDB_INFO | sudo tee --append /etc/hosts"
