@@ -24,7 +24,7 @@ else
   ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu MAINDB_IP "echo $THISDB_INFO | sudo tee --append /etc/hosts" 
   ##Add Main DB hostname to extend DB
   THISDB_IP=$(awk -F' ' '{ print $1}' db_info.conf | tail -1)
-  ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $db_private "sudo head -1 /home/ubuntu/maindb_info.conf")
+  ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $db_private "sudo head -1 /home/ubuntu/maindb_info.conf"
 fi
 echo "FINISED at:" $(date)
 echo "##########FINISHED############"
