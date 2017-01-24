@@ -7,7 +7,7 @@ DBFILE=/home/ubuntu/db_info.conf
 #echo "db_hostname=$db_hostname" | sudo tee --append ${HOME}/db_info.conf
 echo "$db_private $db_hostname" | sudo tee --append $DBFILE
 echo "exports.ipdb='$db_private';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
-#echo "$db_private" | sudo tee --append /home/ubuntu/maindb_info.conf
+echo "$db_private" | sudo tee --append /home/ubuntu/maindb_info.conf
 #source ${HOME}/db_info.conf
 #MAINDB_IP=$(head -1 /home/ubuntu/maindb_info.conf)
 NUM_DB=$(cat $DBFILE | wc -l)
