@@ -23,7 +23,7 @@ echo $THISDB_INFO
 THISDB_NAME=$(awk -F' ' '{ print $2}' $DBFILE | tail -1)
 if [ $MAINDB_IP = $db_private ];
 then
-  echo "THIS IS MAIN DB
+  echo "THIS IS MAIN DB"
   expect /opt/openbaton/scripts/setup-shard.exp $db_private
 else
   echo "THIS IS EXTENDED DB"
