@@ -34,7 +34,7 @@ else
   ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $db_private "echo $MAINDB_INFO | sudo tee --append /etc/hosts"
   REPLSET=$(ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $db_private "head -1 /home/ubuntu/db_info.conf")
   REPLSETID="$REPLSET/$THISDB_NAME:27017"
-  mongo --host $MAINDB_IP --port 27020 --eval "sh.addShard( '$MYHOST' )"
+  mongo --host $MAINDB_IP --port 27020 --eval "sh.addShard( '$REPLSETID' )"
 fi
 echo "FINISED at:" $(date)
 echo "##########FINISHED############"
