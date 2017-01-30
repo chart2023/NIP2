@@ -19,8 +19,9 @@ else
         echo "Server cannot connect to Internet"
 fi
 ntpq -p
-cp /opt/openbaton/scripts/initshard_bigfile.js /home/ubuntu/initshard.js
-chown ubuntu:ubuntu /home/ubuntu/initshard.js
-chmod 755 /home/ubuntu/initshard.js
-echo "STOP at:" $(date)
+cp /opt/openbaton/scripts/initshard.js /home/ubuntu/initshard.js
+cp /opt/openbaton/scripts/initshard_bigfile.js /home/ubuntu/initshard_bigfile.js
+chown ubuntu:ubuntu /home/ubuntu/initshard.js /home/ubuntu/initshard_bigfile.js
+chmod 755 /home/ubuntu/initshard.js /home/ubuntu/initshard_bigfile.js
+echo "FINISHED at:" $(date)
 echo "##########FINISHED############"
