@@ -20,6 +20,8 @@ expect {
 expect "*$ *"
 send "mongo --port 27020 initshard.js\n";
 expect "*$ *"
+send "mongo --port 27020 initshard_bigfile.js\n";
+expect "*$ *"
 send "exit\n";
 expect eof
 exit 0
