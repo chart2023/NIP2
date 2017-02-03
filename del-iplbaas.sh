@@ -7,6 +7,6 @@ ipfile="./ipaddress.txt"
 user='chart'
 ipaddress=$(head -1 $ipfile)
 echo "delete iplbaas:" $ipaddress
-ssh $user@$host_os "./delete-iplbaas.sh $ipaddress"
+ssh $user@$host_os "./delete-iplbaas2.sh $ipaddress"
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
