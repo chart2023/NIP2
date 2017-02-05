@@ -24,5 +24,5 @@ update-rc.d start-nscl.sh defaults
 ntpq -p
 #sed -i 's/db.dropDatabase(cb);/cb(null, null);/g' /OpenMTC-Chula/openmtc-xSCL/lib/db/mongodb/index.js
 echo "FINISH at:" $(date)
-cp -r /opt/openbaton/scripts/openstack.conf /home/ubuntu/openstack.conf
+cp /opt/openbaton/scripts/openstack.conf /home/ubuntu/openstack.conf
 echo "##########FINISHED############"
