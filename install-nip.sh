@@ -20,7 +20,7 @@ chmod ugo+x /etc/init.d/start-nip.sh
 update-rc.d start-nip.sh defaults
 sudo rm -rf /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
-cp /opt/openbaton/scripts/openstack.conf /home/ubuntu/openstack.conf
+cp /opt/openbaton/scripts/openstack.info /home/ubuntu/openstack.info
 ntpq -p
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
