@@ -21,6 +21,8 @@ update-rc.d start-nip.sh defaults
 sudo rm -rf /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 cp /opt/openbaton/scripts/openstack.info /home/ubuntu/openstack.info
+cp /opt/openbaton/scripts/add-iplbaas.sh /home/ubuntu/add-iplbaas.sh
+chmod 777 /home/ubuntu/add-iplbaas.sh
 ntpq -p
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
