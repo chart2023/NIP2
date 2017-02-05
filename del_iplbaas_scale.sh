@@ -11,6 +11,7 @@ do
         then
           echo $ip "is reachable at" $(date) >> log_iplbaas.log
         else
+          echo $ip "is unreachable at" $(date) >> log_iplbaas.log
           curl -s -X POST $OS_AUTH_URL/tokens \
           -H "Content-Type: application/json" \
            -d '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "'"$OS_USERNAME"'", "password": "'"$OS_PASSWORD"'"}}}' | python -m  json.tool > token.txt
@@ -24,9 +25,9 @@ do
           -H "X-Auth-Token: $TOKEN" | python -m json.tool > lbaasmember.info
           MEMBER_ID=$(cat lbaasmember.info | jq '.members[].id' | tr -d '"')
           curl -s -X DELETE http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members/$MEMBER_ID \
-           -H "X-Auth-Token: $TOKEN" \
-          echo $ip "is unreachable at" $(date) >> log_iplbaas.log
+           -H "X-Auth-Token: $TOKEN" 
           sed -i -e "/$ip/d" ${HOME}/iplbaas.info
+          echo "DELETE:" $ipaddress at $(date) >> log_iplbaas.log
           sleep 5
         fi
 done
