@@ -49,6 +49,7 @@ do
                          -d '{"member": {"address": "'"$ipaddress"'", "name": "'"$ipaddress"'","subnet_id": "'"$subnet"'", "protocol_port": "15000"}}'
                         curl -s -X GET http://192.168.9.12:9696/v2.0/lbaas/pools/$pools/members \
                         -H "X-Auth-Token: $TOKEN" | python -m json.tool
+                        ssh-keygen -f "/home/chart/.ssh/known_hosts" -R 192.168.9.122
                         break
                         else
                         echo "NSCL is not working on NSCL"
