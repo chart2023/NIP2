@@ -1,7 +1,7 @@
 #!/bin/bash
 source /home/ubuntu/openstack.info
 ipaddress=$1
-echo "Perform by" $ipaddress >> log_iplbaas.log
+echo "Perform by" $ipaddress "at" $(date) >> log_iplbaas.log
 iplbaas=$(cat ${HOME}/iplbaas.info)
 sleep 1
 for ip in $iplbaas
