@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/ubuntu/openstack.conf
+source /home/ubuntu/openstack.info
 ipaddress=$1
 echo "Perform by" $ipaddress >> log_iplbaas.log
 iplbaas=$(cat ${HOME}/iplbaas.info)
