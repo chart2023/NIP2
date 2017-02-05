@@ -24,4 +24,6 @@ echo $pools
 curl -s -X POST http://192.168.9.12:9696/v2.0/lbaas/pools/$pools/members \
  -H "X-Auth-Token: $TOKEN" \
  -d '{"member": {"address": "'"$ipaddress"'", "name": "'"$ipaddress"'","subnet_id": "'"$subnet"'", "protocol_port": "15000"}}'
+ curl -s -X GET http://192.168.9.12:9696/v2.0/lbaas/pools/$pools/members \
+ -H "X-Auth-Token: $TOKEN" | python -m json.tool
 echo "FINISHED at:" $(date)
