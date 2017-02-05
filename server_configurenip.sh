@@ -18,7 +18,7 @@ echo "exports.fipnscl='$server_private_floatingIp';" | tee --append /OpenMTC-Chu
 #echo "exports.ipopenstack='161.200.90.78';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 #############
 echo "STEP:GET IPLBAAS"
-source /home/ubuntu/openstack.conf
+source /home/ubuntu/openstack.info
 echo $OS_AUTH_URL
 echo $OS_TOKEN
 echo $OS_USERNAME
