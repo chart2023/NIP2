@@ -48,7 +48,7 @@ do
                          -d '{"member": {"address": "'"$ipaddress"'", "name": "'"$ipaddress"'","subnet_id": "'"$subnet"'", "protocol_port": "15000"}}'
                         curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members \
                         -H "X-Auth-Token: $TOKEN" | python -m json.tool
-                        ssh $user1@$host_os "./add-iplbaas.sh $ipopenstack
+                        #ssh $user1@$host_os "./add-iplbaas.sh $ipopenstack
                         ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $nip_ip "/opt/openbaton/scripts/add-iplbaas.sh $ipaddress"
                         break
                         else
