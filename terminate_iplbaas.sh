@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "TERMINATED iplbaas at" $(hostname)
 echo "START at:" $(date)
-source /home/ubuntu/openstack.conf
+source /home/ubuntu/openstack.info
 source /root/nip_info.conf
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
