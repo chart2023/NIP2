@@ -24,7 +24,7 @@ do
                      if [ $? -eq 0 ];
                         then
                         echo "NSCL has been started"
-                        source /home/ubuntu/openstack.conf
+                        source /home/ubuntu/openstack.info
                         curl -s -X POST $OS_AUTH_URL/tokens \
                          -H "Content-Type: application/json" \
                          -d '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "'"$OS_USERNAME"'", "password": "'"$OS_PASSWORD"'"}}}' \
