@@ -2,11 +2,9 @@
 echo "#############################"
 echo "delete iplbaas at Openstack"
 echo "START at:" $(date)
-host_os='192.168.9.12'
 ipfile="./ipaddress.txt"
-user='chart'
 ipaddress=$(head -1 $ipfile)
 echo "delete iplbaas:" $ipaddress
-ssh $user@$host_os "./delete-iplbaas2.sh $ipaddress"
+ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $nip_ip "/opt/openbaton/scripts/del_iplbaas_scale.sh $ipaddress"
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
