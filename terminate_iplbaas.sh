@@ -13,9 +13,7 @@ echo $TOKEN
 curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/loadbalancers?name=loadbalancer1 \
  -H "X-Auth-Token: $TOKEN" \
  | python -m json.tool > lbaas.txt
-vip=$(cat lbaas.txt | jq '.loadbalancers[].vip_address' | tr -d '"')
 pools=$(cat lbaas.txt | jq '.loadbalancers[].pools[].id' | tr -d '"')
-echo $vip
 echo $pools
 curl -s -X GET http://$ipopenstack:9696/v2.0/subnets?name=private_subnet \
  -H "X-Auth-Token: $TOKEN" \
@@ -26,8 +24,8 @@ curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members?address=
  -H "X-Auth-Token: $TOKEN" | python -m json.tool > lbaasmember.info
 MEMBER_ID=$(cat lbaasmember.info | jq '.members[].id' | tr -d '"')
 curl -s -X DELETE http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members/$MEMBER_ID \
- -H "X-Auth-Token: $TOKEN" \
- curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members \
+ -H "X-Auth-Token: $TOKEN" 
+curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members \
  -H "X-Auth-Token: $TOKEN" | python -m json.tool
 ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $nip_ip "/opt/openbaton/scripts/del-iplbaas.sh"
 echo "FINISH at:" $(date)
