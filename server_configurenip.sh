@@ -16,8 +16,14 @@ echo "exports.ipnscl='$server_private';" | tee --append /OpenMTC-Chula/openmtc/s
 echo "exports.ipnip='$ipaddress';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.fipnscl='$server_private_floatingIp';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 #echo "exports.ipopenstack='161.200.90.78';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
-#######
+#############
 echo "STEP:GET IPLBAAS"
+
+
+
+
+
+
 user='chart'
 host_os='192.168.9.12'
 ssh-keygen -N "" -f /root/.ssh/id_rsa
