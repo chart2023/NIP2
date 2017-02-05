@@ -27,7 +27,7 @@ do
           curl -s -X DELETE http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members/$MEMBER_ID \
            -H "X-Auth-Token: $TOKEN" 
           sed -i -e "/$ip/d" ${HOME}/iplbaas.info
-          echo "DELETE:" $ipaddress at $(date) >> log_iplbaas.log
+          echo "DELETE:" $ip at $(date) >> log_iplbaas.log
           sleep 5
         fi
 done
