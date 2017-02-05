@@ -1,3 +1,4 @@
+ipopenstack=192.168.9.12
 OS_AUTH_URL=http://192.168.9.12:5000/v2.0
 OS_PROJECT_NAME=admin
 OS_USERNAME=admin
