@@ -2,6 +2,7 @@
 echo "TERMINATED iplbaas at" $(hostname)
 echo "START at:" $(date)
 source /home/ubuntu/openstack.conf
+source /root/nip_info.conf
 ipfile="./ipaddress.txt"
 ipaddress=$(head -1 $ipfile)
 curl -s -X POST $OS_AUTH_URL/tokens \
@@ -28,5 +29,6 @@ curl -s -X DELETE http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members/$MEMB
  -H "X-Auth-Token: $TOKEN" \
  curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/pools/$pools/members \
  -H "X-Auth-Token: $TOKEN" | python -m json.tool
+ssh -o StrictHostKeyChecking=no -i /openstack_key.pem -l ubuntu $nip_ip "/opt/openbaton/scripts/del-iplbaas.sh"
 echo "FINISH at:" $(date)
 echo "##########FINISHED############"
