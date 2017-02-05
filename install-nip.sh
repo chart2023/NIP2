@@ -22,7 +22,8 @@ sudo rm -rf /OpenMTC-Chula/openmtc/settings/ipserv.js
 echo "exports.ipopenstack='${publicip}';" | tee --append /OpenMTC-Chula/openmtc/settings/ipserv.js
 cp /opt/openbaton/scripts/openstack.info /home/ubuntu/openstack.info
 cp /opt/openbaton/scripts/add-iplbaas.sh /home/ubuntu/add-iplbaas.sh
-chmod 777 /home/ubuntu/add-iplbaas.sh
+cp /opt/openbaton/scripts/del_iplbaas_scale.sh /home/ubuntu/del_iplbaas_scale.sh
+chmod 755 /home/ubuntu/add-iplbaas.sh /home/ubuntu/del_iplbaas_scale.sh
 ntpq -p
 echo "STOP at:" $(date)
 echo "##########FINISHED############"
