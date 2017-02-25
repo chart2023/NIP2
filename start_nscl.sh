@@ -31,7 +31,7 @@ do
                          | python -m  json.tool > token.info
                         TOKEN=$(cat token.info |  jq '.access.token.id' | tr -d '"')
                         echo "TOKEN:"$TOKEN
-                        curl -s -X GET http://$ipopenstack:9696/v2.0/subnets?name=private_subnet \
+                        curl -s -X GET http://$ipopenstack:9696/v2.0/subnets?name=private1_subnet \
                          -H "X-Auth-Token: $TOKEN" \
                          | python -m json.tool > subnet.info
                         subnet=$(cat subnet.info | jq '.subnets[].id' | tr -d '"')
