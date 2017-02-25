@@ -15,7 +15,7 @@ curl -s -X GET http://$ipopenstack:9696/v2.0/lbaas/loadbalancers?name=loadbalanc
  | python -m json.tool > lbaas.txt
 pools=$(cat lbaas.txt | jq '.loadbalancers[].pools[].id' | tr -d '"')
 echo $pools
-curl -s -X GET http://$ipopenstack:9696/v2.0/subnets?name=private_subnet \
+curl -s -X GET http://$ipopenstack:9696/v2.0/subnets?name=private1_subnet \
  -H "X-Auth-Token: $TOKEN" \
  | python -m json.tool > subnet.info
 subnet=$(cat subnet.info | jq '.subnets[].id' | tr -d '"')
