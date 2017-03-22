@@ -1,4 +1,4 @@
-# NIP2 aa
+# Real-time data synchronization between IEEE1888 and ECHONET Lite
 <html>
 <table style="width:100%">
   <tr>
