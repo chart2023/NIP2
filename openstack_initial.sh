@@ -39,7 +39,7 @@ sleep 30
 COUNTER=0
 while [  $COUNTER -lt 10 ]; 
 do
-  if [ $STATUS1 == "ACTIVE" ]; then
+  if [ $STATUS1 = "ACTIVE" ]; then
     neutron lbaas-listener-create --loadbalancer loadbalancer1 --protocol HTTP --protocol-port 15000 --name listener1
     neutron lbaas-pool-create --lb-algorithm ROUND_ROBIN --listener listener1 --protocol HTTP --name pool1
     break
