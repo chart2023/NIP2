@@ -34,6 +34,17 @@ do
 done
 openstack floating ip list
 neutron lbaas-loadbalancer-create --name loadbalancer1 private_subnet
-neutron lbaas-loadbalancer-show loadbalancer1
-neutron lbaas-listener-create --loadbalancer loadbalancer1 --protocol HTTP --protocol-port 15000 --name listener1
-neutron lbaas-pool-create --lb-algorithm ROUND_ROBIN --listener listener1 --protocol HTTP --name pool1
+STATUS1=$(neutron lbaas-loadbalancer-show loadbalancer1 | awk '$2 == "provisioning_status" {print $4}')
+sleep 30
+COUNTER=0
+while [  $COUNTER -lt 10 ]; 
+do
+  if [ $STATUS1 == "ACTIVE" ]; then
+    neutron lbaas-listener-create --loadbalancer loadbalancer1 --protocol HTTP --protocol-port 15000 --name listener1
+    neutron lbaas-pool-create --lb-algorithm ROUND_ROBIN --listener listener1 --protocol HTTP --name pool1
+    break
+  else 
+    sleep 30
+    COUNTER=$(($COUNTER+1))
+  fi
+done
